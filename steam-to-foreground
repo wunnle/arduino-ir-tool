@@ -1,0 +1,3 @@
+!+2::
+   WinActivate, SP
+return
