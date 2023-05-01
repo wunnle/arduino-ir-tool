@@ -1,4 +1,4 @@
-#include <IRremote.hpp>
+#include <IRremote.h>
 #include <Keyboard.h>
 
 
@@ -14,29 +14,14 @@ void setup()
 
 void loop() {
   if (IrReceiver.decode()) {
-      Serial.println("decoded");
       int receivedValue = IrReceiver.decodedIRData.decodedRawData;
       if(receivedValue == 56) {
         // wake up the pc
         Serial.println("hello!");
         // monitor switch
-        Keyboard.press(KEY_LEFT_ALT);
-        delay(500);
-        Keyboard.press(KEY_LEFT_SHIFT);
-        delay(500);
-        Keyboard.press('1'); 
-        Keyboard.releaseAll();
-        delay(1000);
-        // steam
-        Keyboard.press(KEY_LEFT_ALT);
-        delay(500);
-        Keyboard.press(KEY_LEFT_SHIFT);
-        delay(500);
-        Keyboard.press('2'); 
-        Keyboard.releaseAll();
-        Keyboard.releaseAll();
+        Keyboard.press(KEY_F13);
+        Keyboard.release(KEY_F13);
       }
-
       IrReceiver.resume();
   }
 }
