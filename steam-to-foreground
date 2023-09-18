@@ -1,11 +1,11 @@
 !+3::
-RunWait, cmd.exe /c "C:\Users\Me\MonitorSwitcher.exe -load:C:/Users/Me/Desktop.xml"
+RunWait, cmd.exe /c "DisplaySwitch.exe /internal"
 if WinExist("Steam Big Picture Mode")
 	WinClose
 return
 
 F13::
-RunWait, cmd.exe /c "C:\Users\Me\MonitorSwitcher.exe -load:C:\Users\Me\Tv.xml"
+RunWait, cmd.exe /c "DisplaySwitch.exe /external"
 Process, Exist, Steam.exe
 if ErrorLevel
 Run, "steam://open/bigpicture"
